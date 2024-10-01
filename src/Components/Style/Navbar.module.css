@@ -14,6 +14,7 @@
 .navLinks ul{
     display: flex;
     list-style: none;
+    cursor: pointer;
 }
 
 .navLink{
@@ -21,7 +22,19 @@
     color: black;
     font-size: 18px;
     font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
 }
+
+.navLink:hover {
+    color: #7C6A46; /* Add hover effect */
+  }
+  
+  .active {
+    color:#e73616; /* Active link color */
+    font-weight: bold; /* Make active link bold, optional */
+  }
 
 .navSignup{
     margin-right: 20px;
