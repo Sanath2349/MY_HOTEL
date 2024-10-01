@@ -11,6 +11,7 @@
   align-items: center;
   text-align: center;
   position: relative;
+  
 }
 
 .herocontent {
@@ -64,8 +65,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 26vw;
-  height: 450px;
+  width: 28vw;
+  height: 400px;
   /* width: 400px;
 height: 500px;
 top: 924px;
@@ -81,7 +82,7 @@ opacity: 0px; */
 
 .roomimage {
   width: 390px;
-height: 290px;
+height: 250px;
 top: 924px;
 left: 120px;
 gap: 0px;
@@ -130,7 +131,7 @@ font-family: Mulish;
 
   margin-bottom: 10px;
   margin: auto;
-  margin-left: 110px;
+  margin-left: 100px;
  
 }
 
