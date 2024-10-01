@@ -1,0 +1,202 @@
+.homeMain {
+  position: relative;
+}
+
+.homeHeroWrapper {
+  position: relative;
+}
+
+.homeHero {
+  /* background-color: aliceblue; */
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  padding-bottom: 90px; /* Add space for the searchContainer */
+}
+
+.homeHeroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.homeHeroContent h1 {
+  font-size: 50px;
+}
+
+.homeHeroContent h2 {
+  font-size: 55px;
+  font-weight: bold;
+  max-width: 400px;
+  margin: 0;
+}
+
+.homeHeroContent p {
+  font-size: 15px;
+  max-width: 260px;
+}
+
+.homeHeroBookBtn {
+  font-size: 20px;
+  padding: 15px 20px;
+  width: 165px;
+  background-color: #7c6a46;
+  color: white;
+  border: none;
+  border-radius: 30px;
+}
+
+.homeHeroImg img {
+  width: 556px;
+  padding: 10px 0;
+}
+
+.searchContainer {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 300px);
+  height: 120px;
+  background-color: aliceblue;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.roomSearch {
+  display: flex;
+  gap: 10px;
+}
+
+.searchContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.searchContent label {
+  font-size: 16px;
+}
+
+.searchContent select {
+  border: none;
+  background-color: transparent;
+  color: #1c1c1c;
+}
+
+.searchContent input{
+    background-color: transparent;
+    border: none;
+}
+
+.searchBtn {
+  font-size: 20px;
+  padding: 15px 20px;
+  width: 165px;
+  background-color: #7c6a46;
+  color: white;
+  border: none;
+  border-radius: 30px;
+}
+
+.homeFeature{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 50px;
+}
+
+.homeFeatureHeading{
+    text-align: center;
+}
+
+.homeFeatureHeading h1{
+    font-size: 40px;
+}
+
+.homeFeatureHeading p{
+    font-size: 15px;
+    margin: 0;
+}
+
+.homeFeatureContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.facility{
+    width: 280px;
+    height: 250px;
+    background-color: #ebe7e05b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.homeRooms {
+  background-image: url(../../assets//Home/hotelbg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 40px 20px; /* Add some padding for content spacing */
+}
+
+.homeRooms::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(124, 106, 70, 0.76); /* #7c6a46c1 in rgba */
+  z-index: 1;
+}
+
+.homeRoomsHeading {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white; /* Ensure text is visible on the overlay */
+}
+
+.homeRoomsHeading h1{
+  font-size: 50px;
+  margin: 10px;
+  letter-spacing: 4px;
+}
+
+.homeRoomsHeading p{
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.homeRoomContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.homeRoom {
+  width: 370px;
+  height: 380px;
+  background-color: white;
+  margin: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.homeRoom p{
+  font-size: 18px;
+}
