@@ -1,13 +1,4 @@
-/* Background image for the room */
-/* .roomandsuitescontainer {
-    background: url('/src/assets/Rooms/pexels-pixabay-164595.jpg') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  } */
+
   
  /* Hero Section Styles */
 .herosection {
@@ -59,7 +50,7 @@
 .roomsgrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 78px;
+  gap: 88px;
   padding: 50px;
   /* width: 25vw; */
 }
