@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./Style/Navbar.module.css";
 import logo from "../assets/HotelLogo.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate("")
+
+  const handleroom = () => {
+    navigate("/rooms")
+  }
   return (
     <nav className={styles.navBar}>
       <div className={styles.navLogo}>
@@ -13,7 +19,7 @@ const Navbar = () => {
           <li className={styles.navLink}>Home</li>
           <li className={styles.navLink}>Explore</li>
           <li className={styles.navLink}>About</li>
-          <li className={styles.navLink}>Rooms</li>
+          <li className={styles.navLink} onClick={handleroom}>Rooms</li>
           <li className={styles.navLink}>Contact</li>
         </ul>
       </div>
