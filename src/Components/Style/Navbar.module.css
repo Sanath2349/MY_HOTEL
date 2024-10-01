@@ -1,0 +1,43 @@
+.navLogo img{
+    width: 200px;
+}
+
+.navBar{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px;
+    align-items: center;
+}
+
+.navLinks ul{
+    display: flex;
+    list-style: none;
+}
+
+.navLink{
+    margin-right: 20px;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.navSignup{
+    margin-right: 20px;
+    color: #7C6A46;
+    font-size: 18px;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #7C6A46;
+}
+
+.navLogin{
+    color: white;
+    background-color: #7C6A46;
+    border: none;
+    padding: 12px 40px;
+    font-size: 18px;
+    border-radius: 10px;
+}
