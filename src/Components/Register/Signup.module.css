@@ -1,0 +1,83 @@
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+}
+
+.signupForm {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #2b2d42;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 30px;
+
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px; /* Space for eye icon */
+    border: 2px solid #2b2d42;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    height: 45px; /* Fixed height */
+    box-sizing: border-box; /* Ensures padding is included within the height */
+  }
+.input:focus {
+  border-color: #ff2e63;
+}
+
+.eyeIcon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+  }
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #7C6A46;;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #2b2d42;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    position: absolute;
+    bottom: -23px; /* Position the error message below the input */
+    left: 0;
+    width: 100%;
+  }

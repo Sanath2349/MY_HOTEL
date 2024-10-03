@@ -15,6 +15,14 @@ const Navbar = () => {
     return location.pathname === path ? styles.active : "";
   };
 
+  const handlenewuser = () =>{
+    navigate('/signup')
+  }
+
+  const handlelogin = () =>{
+    navigate('/login')
+  }
+
   return (
     <nav className={styles.navBar}>
       <div className={styles.navLogo}>
@@ -55,10 +63,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className={styles.navButtons}>
-        <button type="button" className={styles.navSignup}>
+        <button type="button" className={styles.navSignup} onClick={handlenewuser}>
           New User?
         </button>
-        <button type="button" className={styles.navLogin}>
+        <button type="button" className={styles.navLogin} onClick={handlelogin}>
           Login
         </button>
       </div>
