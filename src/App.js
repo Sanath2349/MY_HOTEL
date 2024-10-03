@@ -6,6 +6,9 @@ import Explore from "./Components/Explore/Explore";
 import Footer from "./Components/Footer";
 import Aboutus from "./Components/About/Aboutus";
 import Room from "./Components/Rooms/Room";
+import Signup from "./Components/Register/Signup";
+import Login from "./Components/Login/Login";
+
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/rooms" element={<Room />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+         
         </Routes>
         <Footer/>
       </Router>
