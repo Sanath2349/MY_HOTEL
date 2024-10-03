@@ -1,0 +1,77 @@
+.footerContainer {
+  background-color: #7c6a46;
+  height: 420px;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+
+.footerHead {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  justify-content: center;
+  padding: 20px 10px;
+  color: white;
+}
+
+.footerHead ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerHead ul li{
+    margin: 8px 3px;
+    cursor: pointer;
+}
+
+.footerTittle {
+  font-size: 30px;
+  margin: 0;
+}
+
+.footerDescription {
+  max-width: 320px;
+  font-size: 15px;
+  margin: 5px 0;
+  line-height: 18px;
+}
+
+.footerNewsletter {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerNewsletter p{
+    font-size: 14px;
+}
+
+.footerNewsletter input {
+  width: 360px;
+  height: 50px;
+  position: absolute;
+  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+}
+
+.footerNewsletter button {
+  position: relative;
+  left: 66%;
+  margin-top: 5px;
+  padding: 13px 30px;
+  border-radius: 3px;
+  border: none;
+  background-color: #7c6a46;
+  color: white;
+  cursor: pointer;
+}
+.copyright {
+  color: white;
+  text-align: center;
+}
+
+.copyright h3{
+    margin-top: 30px;
+}

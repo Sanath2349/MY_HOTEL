@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import Explore from "./Components/Explore/Explore";
+import Footer from "./Components/Footer";
 import Aboutus from "./Components/About/Aboutus";
+import Room from "./Components/Rooms/Room";
 import Signup from "./Components/Register/Signup";
 import Login from "./Components/Login/Login";
 
-import Room from "./Components/Rooms/Room";
 import Contactus from "./Components/ContactUs/Contactus";
 
 function App() {
@@ -23,8 +24,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/rooms" element={<Room />} />
           <Route path="/contact" element={<Contactus />} />
-         
         </Routes>
+        <Footer />
       </Router>
     </>
   );
