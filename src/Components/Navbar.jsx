@@ -35,8 +35,8 @@ const Navbar = () => {
             Explore
           </li>
           <li 
-            className={`${styles.navLink} ${isActive("/about")}`} 
-            onClick={() => handleNavigation("/about")}
+            className={`${styles.navLink} ${isActive("/aboutus")}`} 
+            onClick={() => handleNavigation("/aboutus")}
           >
             About
           </li>
