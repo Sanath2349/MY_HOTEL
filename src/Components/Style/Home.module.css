@@ -10,7 +10,7 @@
   /* background-color: aliceblue; */
   display: flex;
   justify-content: space-evenly;
-  width: 100vw;
+  width: 98vw;
   padding-bottom: 90px; /* Add space for the searchContainer */
 }
 
@@ -58,7 +58,7 @@
   transform: translateX(-50%);
   width: calc(100% - 300px);
   height: 120px;
-  background-color: aliceblue;
+  background-color: #bbad9153;
   z-index: 1;
   display: flex;
   align-items: center;
