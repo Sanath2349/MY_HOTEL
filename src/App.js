@@ -7,6 +7,8 @@ import Aboutus from "./Components/About/Aboutus";
 import Signup from "./Components/Register/Signup";
 import Login from "./Components/Login/Login";
 
+import Room from "./Components/Rooms/Room";
+import Contactus from "./Components/ContactUs/Contactus";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/rooms" element={<Room />} />
+          <Route path="/contact" element={<Contactus />} />
          
         </Routes>
       </Router>
