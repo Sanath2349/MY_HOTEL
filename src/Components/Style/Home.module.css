@@ -17,11 +17,13 @@
 .homeHeroContent {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   justify-content: center;
 }
 
 .homeHeroContent h1 {
   font-size: 50px;
+  color: #7c6a46;
 }
 
 .homeHeroContent h2 {
@@ -34,6 +36,7 @@
 .homeHeroContent p {
   font-size: 15px;
   max-width: 260px;
+  margin: 0 10px;
 }
 
 .homeHeroBookBtn {
@@ -111,10 +114,12 @@
 
 .homeFeatureHeading{
     text-align: center;
+    margin: 40px 0;
 }
 
 .homeFeatureHeading h1{
     font-size: 40px;
+    margin: 10px 0;
 }
 
 .homeFeatureHeading p{
