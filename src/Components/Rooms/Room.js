@@ -1,55 +1,71 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./Style/Room.module.css";
-import roomprice from "../../assets/Rooms/roomprice.png";
 import { CiWifiOn } from "react-icons/ci";
 import { PiShowerLight } from "react-icons/pi";
 import { IoMdTv } from "react-icons/io";
+import { useSelector, useDispatch } from 'react-redux';
+import { setAvailableRooms, selectRoom } from '../../redux/slices/roomSlice';
+import roomprice from '../../assets/Rooms/roomprice.png';
+
+// Move static room data outside the component
+const roomData = [
+  {
+    id: 1,
+    title: "The Royal Room",
+    price: "₦190,000",
+    available: "Yes",
+    imageUrl: "./../",
+  },
+  {
+    id: 2,
+    title: "The Royal Room",
+    price: "₦190,000",
+    available: "Yes",
+    imageUrl: "/path-to-your-image/room1.jpg",
+  },
+  {
+    id: 3,
+    title: "The Royal Room",
+    price: "₦190,000",
+    available: "Yes",
+    imageUrl: "/path-to-your-image/room1.jpg",
+  },
+  {
+    id: 4,
+    title: "The Royal Room",
+    price: "₦190,000",
+    available: "Yes",
+    imageUrl: "/path-to-your-image/room1.jpg",
+  },
+  {
+    id: 5,
+    title: "The Royal Room",
+    price: "₦190,000",
+    available: "Yes",
+    imageUrl: "/path-to-your-image/room1.jpg",
+  },
+  {
+    id: 6,
+    title: "The Royal Room",
+    price: "₦190,000",
+    available: "Yes",
+    imageUrl: "/path-to-your-image/room1.jpg",
+  },
+];
 
 const Room = () => {
-  const rooms = [
-    {
-      id: 1,
-      title: "The Royal Room",
-      price: "₦190,000",
-      available: "Yes",
-      imageUrl: "/path-to-your-image/room1.jpg",
-    },
-    {
-      id: 2,
-      title: "The Royal Room",
-      price: "₦190,000",
-      available: "Yes",
-      imageUrl: "/path-to-your-image/room1.jpg",
-    },
-    {
-      id: 3,
-      title: "The Royal Room",
-      price: "₦190,000",
-      available: "Yes",
-      imageUrl: "/path-to-your-image/room1.jpg",
-    },
-    {
-      id: 4,
-      title: "The Royal Room",
-      price: "₦190,000",
-      available: "Yes",
-      imageUrl: "/path-to-your-image/room1.jpg",
-    },
-    {
-      id: 5,
-      title: "The Royal Room",
-      price: "₦190,000",
-      available: "Yes",
-      imageUrl: "/path-to-your-image/room1.jpg",
-    },
-    {
-      id: 6,
-      title: "The Royal Room",
-      price: "₦190,000",
-      available: "Yes",
-      imageUrl: "/path-to-your-image/room1.jpg",
-    },
-  ];
+  const dispatch = useDispatch();
+  const rooms = useSelector(state => state.rooms.availableRooms);
+
+  // Set available rooms only once on component mount
+  useEffect(() => {
+    dispatch(setAvailableRooms(roomData)); // Populate Redux store with static data
+  }, [dispatch]);
+
+  const handleRoomSelection = (room) => {
+    dispatch(selectRoom(room)); // Dispatch action to select a room
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -91,9 +107,8 @@ const Room = () => {
               <span className={style.icon}>
                 <CiWifiOn />
               </span>
-              <button className={style.booknowbtn}>Book now</button>
+              <button className={style.booknowbtn} onClick={() => handleRoomSelection(room)}>Book now</button>
             </div>
-            {/* <button className={style.booknowbtn}>Book now</button> */}
           </div>
         ))}
       </section>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from "../Login/Login.module.css";
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/slices/userSlice';
 
 export default function Login() {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -12,6 +14,13 @@ export default function Login() {
   const handlesignup = ()=>{
     navigate('/signup')
   }
+
+  const dispatch = useDispatch();
+
+  const handleLogin = (userData) => {
+    // Perform login logic
+    dispatch(setUser(userData));
+  };
   return (
 
     <div className={styles.signupContainer}>
