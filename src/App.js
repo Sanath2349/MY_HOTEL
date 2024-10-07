@@ -10,6 +10,7 @@ import Signup from "./Components/Register/Signup";
 import Login from "./Components/Login/Login";
 
 import Contactus from "./Components/ContactUs/Contactus";
+import Changepassowrd from "./Components/changepassword/Changepassowrd";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/rooms" element={<Room />} />
           <Route path="/contact" element={<Contactus />} />
+          <Route path="/changepassword" element={<Changepassowrd />} />
         </Routes>
         <Footer />
       </Router>

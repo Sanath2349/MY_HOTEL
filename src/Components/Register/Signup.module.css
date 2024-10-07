@@ -46,7 +46,7 @@
 
 .eyeIcon {
     position: absolute;
-    top: 50%;
+    top: 59%;
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
@@ -80,4 +80,10 @@
     bottom: -23px; /* Position the error message below the input */
     left: 0;
     width: 100%;
+  }
+
+
+  .successMessage{
+    background-color: #ff9d2e;
+    margin: 10%;
   }
