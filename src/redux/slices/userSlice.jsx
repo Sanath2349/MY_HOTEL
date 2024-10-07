@@ -8,12 +8,12 @@ const userSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
-      state.currentUser = action.payload;
-      state.isAuthenticated = true;
+      state.email = action.payload.email;
+      state.username = action.payload.username;
     },
     clearUser: (state) => {
-      state.currentUser = null;
-      state.isAuthenticated = false;
+      state.email = null;
+      state.username = null;
     },
   },
 });

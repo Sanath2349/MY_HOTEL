@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "../Register/Signup.module.css";
 
 export default function Signup() {
@@ -15,6 +16,8 @@ export default function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
   const [signupSuccess, setSignupSuccess] = useState(false);
+
+  const navigate = useNavigate(); // Initialize navigate
 
   const validate = () => {
     let validationErrors = {};
@@ -58,18 +61,19 @@ export default function Signup() {
       setIsLoading(true);
       setApiError(null);
 
-      axios.post("http://3.7.35.89/customer_register", {
-        full_name: formData.fullname,  // Adjusted key to match 'full_name'
-        email: formData.email,
-        phone_no: formData.phone_no || 0,  // Assuming phone number is optional
-        password: formData.password,
-        confirm_password: formData.confirmPassword,  // Added confirm_password
-        role: "customer"  // Fixed role to "customer" as per your response body
-      })
-      
+      axios
+        .post("http://3.7.35.89/customer_register", {
+          full_name: formData.fullname,
+          email: formData.email,
+          phone_no: formData.phone_no || 0,
+          password: formData.password,
+          confirm_password: formData.confirmPassword,
+          role: "customer",
+        })
         .then((response) => {
           console.log("Signup successful", response.data);
           setSignupSuccess(true);
+          navigate("/login"); // Redirect to login page
         })
         .catch((error) => {
           console.error("Error during signup:", error);
@@ -90,10 +94,7 @@ export default function Signup() {
   if (signupSuccess) {
     return (
       <div className={styles.successMessage}>
-        <p>
-          Signup successful! Welcome aboard. You can now log in with your new
-          account.
-        </p>
+        <p>Signup successful! Redirecting to login...</p>
       </div>
     );
   }

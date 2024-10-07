@@ -37,12 +37,16 @@ export default function Login() {
       console.log("API Response:", response.data); // Debug the response
   
       // Check the actual API response data
-      if (response.data && response.data.includes("Login Successfull")) { 
-        // Assuming the response is a string containing "Login Successfull"
-        const userData = response.data;
+      if (response.data && response.data.includes("Login Successfull")) {
+        const userData = {
+          email: email,
+          username: response.data.username,  // Add username from response
+        };
         dispatch(setUser(userData));
-        setIsLoggedIn(true); // Set login success state to true only if login was successful
-      } else {
+        setIsLoggedIn(true); // Set login success state to true
+        navigate('/');  // Navigate to home page after login
+      }
+       else {
         setError('Invalid login credentials. Please try again.');
       }
     })
