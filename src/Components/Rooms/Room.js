@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import style from "./Style/Room.module.css";
+import { useSelector, useDispatch } from "react-redux";
 import { CiWifiOn } from "react-icons/ci";
 import { PiShowerLight } from "react-icons/pi";
 import { IoMdTv } from "react-icons/io";
-import { useSelector, useDispatch } from 'react-redux';
-import { setAvailableRooms, selectRoom } from '../../redux/slices/roomSlice';
-import roomprice from '../../assets/Rooms/roomprice.png';
+import { setAvailableRooms, selectRoom } from "../../redux/slices/roomSlice";
+import style from "./Style/Room.module.css";
+import roomprice from "../../assets/Rooms/roomprice.png";
 
 // Move static room data outside the component
 const roomData = [
@@ -49,36 +49,41 @@ const roomData = [
     title: "The Royal Room",
     price: "₦190,000",
     available: "Yes",
-    imageUrl:{roomprice},
+    imageUrl: {roomprice},
   },
+  // ... other room data
 ];
 
 const Room = () => {
   const dispatch = useDispatch();
-  const rooms = useSelector(state => state.rooms.availableRooms);
+  const rooms = useSelector((state) => state.rooms?.availableRooms || []);
 
-  // Set available rooms only once on component mount
   useEffect(() => {
-    dispatch(setAvailableRooms(roomData)); // Populate Redux store with static data
+    dispatch(setAvailableRooms(roomData));
   }, [dispatch]);
 
   const handleRoomSelection = (room) => {
-    dispatch(selectRoom(room)); // Dispatch action to select a room
+    dispatch(selectRoom(room));
   };
 
   return (
     <div>
       {/* Hero Section */}
       <section className={style.herosection}>
+        {/* ... hero content ... */}
+
         <div className={style.herocontent}>
+          
           <h1 className={style.herotitle}>Rooms and Suites</h1>
           <p className={style.herosubtitle}>
+            
             The elegant luxury bedrooms in this gallery showcase custom interior
             designs & decorating ideas. View pictures and find your perfect
             luxury bedroom design.
           </p>
           <div className={style.scrolldown}>
-            <span>&#8595;</span>
+            
+            <span>!</span>
           </div>
         </div>
       </section>
@@ -107,7 +112,12 @@ const Room = () => {
               <span className={style.icon}>
                 <CiWifiOn />
               </span>
-              <button className={style.booknowbtn} onClick={() => handleRoomSelection(room)}>Book now</button>
+              <button
+                className={style.booknowbtn}
+                onClick={() => handleRoomSelection(room)}
+              >
+                Book now
+              </button>
             </div>
           </div>
         ))}
