@@ -3,20 +3,20 @@ import { createSlice } from '@reduxjs/toolkit';
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    currentUser: null,  // Keep this for user info
+    currentUser: null,
     isAuthenticated: false,
+    isAdmin: false,
   },
   reducers: {
     setUser: (state, action) => {
-      state.currentUser = {
-        email: action.payload.email,
-        username: action.payload.username,
-      };
-      state.isAuthenticated = true; // Set to true when the user logs in
+      state.currentUser = action.payload;
+      state.isAuthenticated = true;
+      state.isAdmin = action.payload.isAdmin || false;
     },
     clearUser: (state) => {
-      state.currentUser = null; // Clear user info on logout
-      state.isAuthenticated = false; // Set authentication status to false
+      state.currentUser = null;
+      state.isAuthenticated = false;
+      state.isAdmin = false;
     },
   },
 });

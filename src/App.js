@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import Explore from "./Components/Explore/Explore";
@@ -12,10 +12,13 @@ import Login from "./Components/Login/Login";
 import Contactus from "./Components/ContactUs/Contactus";
 import Changepassowrd from "./Components/changepassword/Changepassowrd";
 
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./redux/store";
+import UserProfile from "./Components/Profiles/UserProfile";
+import AdminPanel from "./Components/Profiles/AdminPanel";
 
 function App() {
+  const { isAuthenticated, isAdmin } = useSelector((state) => state.user);
   return (
     <Provider store={store}>
       <Router>
@@ -29,6 +32,14 @@ function App() {
           <Route path="/rooms" element={<Room />} />
           <Route path="/contact" element={<Contactus />} />
           <Route path="/changepassword" element={<Changepassowrd />} />
+          <Route 
+          path="/profile" 
+          element={isAuthenticated ? <UserProfile /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/admin" 
+          element={isAuthenticated && isAdmin ? <AdminPanel /> : <Navigate to="/" />} 
+        />
         </Routes>
         <Footer />
       </Router>

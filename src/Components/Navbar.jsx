@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Style/Navbar.module.css";
 import logo from "../assets/HotelLogo.png";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";  // Import useDispatch along with useSelector
-import { clearUser } from "../redux/slices/userSlice";  // Import clearUser action
+import { useSelector, useDispatch } from "react-redux";
+import { clearUser } from "../redux/slices/userSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useDispatch();  // Initialize useDispatch
-  const user = useSelector((state) => state.user.currentUser);  // Get the logged-in user info
+  const dispatch = useDispatch();
+  const { currentUser, isAuthenticated, isAdmin } = useSelector((state) => state.user);
+
+
+
+  useEffect(() => {
+    console.log("Navbar - Redux State:", { currentUser, isAuthenticated, isAdmin });
+  }, [currentUser, isAuthenticated, isAdmin]);
+
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -19,23 +26,15 @@ const Navbar = () => {
     return location.pathname === path ? styles.active : "";
   };
 
-  const handlenewuser = () => {
-    navigate("/signup");
-  };
-
-  const handlelogin = () => {
-    navigate("/login");
-  };
-
   const handleLogout = () => {
-    dispatch(clearUser());  // Clear user data from Redux store
-    navigate("/login");
+    dispatch(clearUser());
+    navigate("/");
   };
 
   return (
     <nav className={styles.navBar}>
       <div className={styles.navLogo}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" onClick={() => handleNavigation("/")} />
       </div>
       <div className={styles.navLinks}>
         <ul>
@@ -50,8 +49,8 @@ const Navbar = () => {
             Explore
           </li>
           <li 
-            className={`${styles.navLink} ${isActive("/aboutus")}`} 
-            onClick={() => handleNavigation("/aboutus")}>
+            className={`${styles.navLink} ${isActive("/about")}`} 
+            onClick={() => handleNavigation("/about")}>
             About
           </li>
           <li 
@@ -67,19 +66,28 @@ const Navbar = () => {
         </ul>
       </div>
       <div className={styles.navButtons}>
-        {user ? (  // Check if user is available
-          <div className={styles.userInfo}>
-            <span>Welcome, {user.username}!</span>
+        {isAuthenticated ? (
+          <>
+            <span className={styles.welcomeMessage}>Welcome, {currentUser.username}!</span>
+            {isAdmin ? (
+              <button onClick={() => handleNavigation("/admin")} className={styles.navAdmin}>
+                Admin Panel
+              </button>
+            ) : (
+              <button onClick={() => handleNavigation("/profile")} className={styles.navProfile}>
+                My Profile
+              </button>
+            )}
             <button onClick={handleLogout} className={styles.navLogout}>
               Logout
             </button>
-          </div>
+          </>
         ) : (
           <>
-            <button type="button" className={styles.navSignup} onClick={handlenewuser}>
+            <button onClick={() => handleNavigation("/signup")} className={styles.navSignup}>
               New User?
             </button>
-            <button type="button" className={styles.navLogin} onClick={handlelogin}>
+            <button onClick={() => handleNavigation("/login")} className={styles.navLogin}>
               Login
             </button>
           </>
