@@ -2,12 +2,14 @@ import React from "react";
 import styles from "./Style/Navbar.module.css";
 import logo from "../assets/HotelLogo.png";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";  // Import useSelector to get user info
+import { useSelector, useDispatch } from "react-redux";  // Import useDispatch along with useSelector
+import { clearUser } from "../redux/slices/userSlice";  // Import clearUser action
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const user = useSelector((state) => state.user);  // Get the logged-in user info
+  const dispatch = useDispatch();  // Initialize useDispatch
+  const user = useSelector((state) => state.user.currentUser);  // Get the logged-in user info
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -26,8 +28,7 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    // Handle user logout logic (e.g., clearing user data in Redux or localStorage)
-    // Navigate back to login or home after logout
+    dispatch(clearUser());  // Clear user data from Redux store
     navigate("/login");
   };
 
@@ -40,38 +41,33 @@ const Navbar = () => {
         <ul>
           <li 
             className={`${styles.navLink} ${isActive("/")}`} 
-            onClick={() => handleNavigation("/")}
-          >
+            onClick={() => handleNavigation("/")}>
             Home
           </li>
           <li 
             className={`${styles.navLink} ${isActive("/explore")}`} 
-            onClick={() => handleNavigation("/explore")}
-          >
+            onClick={() => handleNavigation("/explore")}>
             Explore
           </li>
           <li 
             className={`${styles.navLink} ${isActive("/aboutus")}`} 
-            onClick={() => handleNavigation("/aboutus")}
-          >
+            onClick={() => handleNavigation("/aboutus")}>
             About
           </li>
           <li 
             className={`${styles.navLink} ${isActive("/rooms")}`} 
-            onClick={() => handleNavigation("/rooms")}
-          >
+            onClick={() => handleNavigation("/rooms")}>
             Rooms
           </li>
           <li 
             className={`${styles.navLink} ${isActive("/contact")}`} 
-            onClick={() => handleNavigation("/contact")}
-          >
+            onClick={() => handleNavigation("/contact")}>
             Contact
           </li>
         </ul>
       </div>
       <div className={styles.navButtons}>
-        {user.username ? (
+        {user ? (  // Check if user is available
           <div className={styles.userInfo}>
             <span>Welcome, {user.username}!</span>
             <button onClick={handleLogout} className={styles.navLogout}>

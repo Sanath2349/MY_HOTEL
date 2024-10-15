@@ -12,9 +12,12 @@ import Login from "./Components/Login/Login";
 import Contactus from "./Components/ContactUs/Contactus";
 import Changepassowrd from "./Components/changepassword/Changepassowrd";
 
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <Router>
         <Navbar />
         <Routes>
@@ -29,7 +32,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </Provider>
   );
 }
 

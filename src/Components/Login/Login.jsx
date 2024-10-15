@@ -10,10 +10,9 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // New state for login success
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
   const dispatch = useDispatch();
-
-  const navigate = useNavigate('')
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setIsRegistering(!isRegistering);
@@ -23,10 +22,11 @@ export default function Login() {
   const handleSignup = () => {
     navigate('/signup');
   };
+
   const handleLogin = (e) => {
     e.preventDefault();
     setError(''); // Clear any existing errors before attempting login
-  
+
     axios.post('http://3.7.35.89/login_customer', null, {
       params: {
         email,
@@ -35,7 +35,7 @@ export default function Login() {
     })
     .then(response => {
       console.log("API Response:", response.data); // Debug the response
-  
+
       // Check the actual API response data
       if (response.data && response.data.includes("Login Successfull")) {
         const userData = {
@@ -46,7 +46,7 @@ export default function Login() {
         setIsLoggedIn(true); // Set login success state to true
         navigate('/');  // Navigate to home page after login
       }
-       else {
+      else {
         setError('Invalid login credentials. Please try again.');
       }
     })
@@ -61,9 +61,6 @@ export default function Login() {
       }
     });
   };
-  
-  
-  
 
   const handleForgot = () => {
     navigate('/changepassword');
@@ -80,43 +77,35 @@ export default function Login() {
           style={{ display: 'none' }}
         />
         <div className={styles.slider} style={{ transform: isRegistering ? 'translateX(-100%)' : 'translateX(0)' }}>
-          {/* Conditionally render the form or success message */}
-          {!isLoggedIn ? (
-            <form className={styles.form} onSubmit={handleLogin}>
-              <span className={styles.title}>Login</span>
-              {error && <div className={styles.errorMessage}>{error}</div>}
-              <div className={styles.form_control}>
-                <input 
-                  type="text" 
-                  className={styles.input} 
-                  required 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <label className={styles.label}>Email</label>
-              </div>
-              <div className={styles.form_control}>
-                <input 
-                  type="password" 
-                  className={styles.input} 
-                  required 
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <label className={styles.label}>Password</label>
-              </div>
-              <button type="submit" className={styles.login}>Login</button>
-              <span className={styles.bottom_text}>
-                Don't have an account? <label htmlFor="register_toggle" className={styles.switch} onClick={handleSignup}>Sign Up</label>
-              </span>
-              <button className={styles.login} onClick={handleForgot}>Forgot Password</button>
-            </form>
-          ) : (
-            <div className={styles.successMessage}>
-              <h2>Login successful!</h2>
-              <p>Welcome back! You are now logged in.</p>
+          <form className={styles.form} onSubmit={handleLogin}>
+            <span className={styles.title}>Login</span>
+            {error && <div className={styles.errorMessage}>{error}</div>}
+            <div className={styles.form_control}>
+              <input 
+                type="text" 
+                className={styles.input} 
+                required 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label className={styles.label}>Email</label>
             </div>
-          )}
+            <div className={styles.form_control}>
+              <input 
+                type="password" 
+                className={styles.input} 
+                required 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <label className={styles.label}>Password</label>
+            </div>
+            <button type="submit" className={styles.login}>Login</button>
+            <span className={styles.bottom_text}>
+              Don't have an account? <label htmlFor="register_toggle" className={styles.switch} onClick={handleSignup}>Sign Up</label>
+            </span>
+            <button className={styles.login} onClick={handleForgot}>Forgot Password</button>
+          </form>
         </div>
       </div>
     </div>
